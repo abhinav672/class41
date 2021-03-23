@@ -42,7 +42,7 @@ class Game {
 
   play(){
     form.hide();
-    
+    player.getCarsatend()
     Player.getPlayerInfo();
     
     if(allPlayers !== undefined){
@@ -55,7 +55,7 @@ class Game {
       var index = 0;
 
       //x and y position of the cars
-      var x = 175 ;
+      var x = 200 ;
       var y;
 
       for(var plr in allPlayers){
@@ -93,6 +93,9 @@ class Game {
 
     if(player.distance > 3860){
       gameState = 2;
+      player.rank+=1;
+      Player.updateCarsatEnd(player.rank)
+      
     }
    
     drawSprites();
@@ -100,5 +103,6 @@ class Game {
 
   end(){
     console.log("Game Ended");
+    console.log(player.rank)
   }
 }
